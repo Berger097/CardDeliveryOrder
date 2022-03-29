@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class InteractionWithComplexElements {
     LocalDate localDate = LocalDate.now().plusDays(3);
 
+
     @Test
     public void datePicker() {
         int dey = 4;
