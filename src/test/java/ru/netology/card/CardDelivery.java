@@ -48,7 +48,7 @@ public class CardDelivery {
         $("[data-test-id='phone'] input").val("+79994702121");
         $("[data-test-id='agreement']").click();
         $("div .button").click();
-        $("[data-test-id='city'] .input__sub").should(visible, Duration.ofSeconds(15));
+        $("[data-test-id='city'].input_invalid .input__sub").should(visible, Duration.ofSeconds(15));
 
 
     }
@@ -62,7 +62,7 @@ public class CardDelivery {
         $("[data-test-id='phone'] input").val("+79994702121");
         $("[data-test-id='agreement']").click();
         $("div .button").click();
-        $("[data-test-id='city'] .input__sub").should(visible, Duration.ofSeconds(15));
+        $("[data-test-id='city'].input_invalid .input__sub").should(visible, Duration.ofSeconds(15));
 
 
     }
@@ -106,7 +106,7 @@ public class CardDelivery {
         $("[data-test-id='phone'] input").val("+79994702121");
         $("[data-test-id='agreement']").click();
         $("div .button").click();
-        $("[data-test-id='name'] .input__sub").should(visible, Duration.ofSeconds(15));
+        $("[data-test-id='name'].input_invalid .input__sub").should(visible, Duration.ofSeconds(15));
 
 
     }
@@ -120,7 +120,7 @@ public class CardDelivery {
         $("[data-test-id='phone'] input").val("+79994702121");
         $("[data-test-id='agreement']").click();
         $("div .button").click();
-        $("[data-test-id='name'] .input__sub").should(visible, Duration.ofSeconds(15));
+        $("[data-test-id='name'].input_invalid .input__sub").should(visible, Duration.ofSeconds(15));
 
 
     }
