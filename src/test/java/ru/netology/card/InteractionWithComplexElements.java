@@ -13,7 +13,7 @@ public class InteractionWithComplexElements {
     LocalDate localDate = LocalDate.now().plusDays(3);
 
     @Test
-    public void happyPath2() {
+    public void datePicker() {
         int dey = 4;
         open("http://0.0.0.0:9999/");
         $("[data-test-id='city'] input").val("Омск");
@@ -39,7 +39,7 @@ public class InteractionWithComplexElements {
     }
 
     @Test
-    public void happyPath3() {
+    public void fieldAutocomplete() {
         open("http://0.0.0.0:9999/");
         $("[data-test-id='city'] input").val("Арх");
         $(".menu-item__control").click();
