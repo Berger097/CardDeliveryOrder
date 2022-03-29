@@ -1,6 +1,7 @@
 package ru.netology.card;
 
 
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -31,6 +32,8 @@ public class CardDelivery {
         $("[data-test-id='agreement']").click();
         $("div .button").click();
         $("[data-test-id='notification'] .notification__title").should(visible, Duration.ofSeconds(15));
+        $(".notification__content")
+                .should(Condition.text("Встреча успешно забронирована на " + strData), Duration.ofSeconds(15));
 
 
     }

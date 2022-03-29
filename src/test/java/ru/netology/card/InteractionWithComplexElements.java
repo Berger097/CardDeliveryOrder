@@ -1,16 +1,22 @@
 package ru.netology.card;
 
 
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class InteractionWithComplexElements {
     LocalDate localDate = LocalDate.now().plusDays(3);
+    DateTimeFormatter data = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    String strData2 = localDate.format(data);
+
+
 
 
     @Test
@@ -36,20 +42,25 @@ public class InteractionWithComplexElements {
             $("[data-test-id='agreement']").click();
             $("div .button").click();
             $("[data-test-id='notification'] .notification__title").should(visible, Duration.ofSeconds(15));
+            $(".notification__content")
+                    .should(Condition.text("Встреча успешно забронирована на " + strData2), Duration.ofSeconds(15));
         }
     }
 
     @Test
     public void fieldAutocomplete() {
+
         open("http://0.0.0.0:9999/");
         $("[data-test-id='city'] input").val("Арх");
         $(".menu-item__control").click();
-        $("[data-test-id='date'] input").val("12.04.2022");
+        $("[data-test-id='date'] input").val(strData2);
         $("[data-test-id='name'] input").val("Елена");
         $("[data-test-id='phone'] input").val("+79994702121");
         $("[data-test-id='agreement']").click();
         $("div .button").click();
         $("[data-test-id='notification'] .notification__title").should(visible, Duration.ofSeconds(15));
+        $(".notification__content")
+                .should(Condition.text("Встреча успешно забронирована на " + strData2), Duration.ofSeconds(15));
 
 
     }
