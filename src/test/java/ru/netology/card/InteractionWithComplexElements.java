@@ -17,11 +17,13 @@ public class InteractionWithComplexElements {
     String strData2 = localDate.format(data);
 
 
-
-
     @Test
     public void datePicker() {
         int dey = 4;
+
+        DateTimeFormatter data = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        String oneData = localDate.plusDays(dey).format(data);
+
         open("http://0.0.0.0:9999/");
         $("[data-test-id='city'] input").val("Омск");
         $(".menu-item__control").click();
@@ -29,22 +31,22 @@ public class InteractionWithComplexElements {
         if (localDate.plusDays(dey).getMonth() != localDate.getMonth()) {
             $(".calendar__arrow[data-step='1']").click();
         }
-        int data = localDate.plusDays(dey).getDayOfMonth();
-        String strData = String.format(String.valueOf(data));
+        int data1 = localDate.plusDays(dey).getDayOfMonth();
+        String strData = String.format(String.valueOf(data1));
         int element = $$("[role='gridcell'].calendar__day").size();
         for (int i = 0; i < element; i++) {
             String text = $$("[role='gridcell'].calendar__day").get(i).getText();
             if (text.equalsIgnoreCase(strData)) {
                 $$("[role='gridcell'].calendar__day").get(i).click();
             }
-            $("[data-test-id='name'] input").val("Елена");
-            $("[data-test-id='phone'] input").val("+79994702121");
-            $("[data-test-id='agreement']").click();
-            $("div .button").click();
-            $("[data-test-id='notification'] .notification__title").should(visible, Duration.ofSeconds(15));
-            $(".notification__content")
-                    .should(Condition.text("Встреча успешно забронирована на " + strData2), Duration.ofSeconds(15));
         }
+        $("[data-test-id='name'] input").val("Елена");
+        $("[data-test-id='phone'] input").val("+79994702121");
+        $("[data-test-id='agreement']").click();
+        $("div .button").click();
+        $("[data-test-id='notification'] .notification__title").should(visible, Duration.ofSeconds(15));
+        $(".notification__content")
+                .should(Condition.text("Встреча успешно забронирована на " + oneData), Duration.ofSeconds(15));
     }
 
     @Test
