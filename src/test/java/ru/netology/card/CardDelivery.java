@@ -23,7 +23,7 @@ public class CardDelivery {
 
     @Test
     public void happyPath() {
-        open("http://0.0.0.0:9999/");
+        open("http://localhost:9999/");
         $("[data-test-id='city'] input").val("Омск");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").val(strData);
@@ -40,7 +40,7 @@ public class CardDelivery {
 
     @Test
     public void invalidFieldCity() {
-        open("http://0.0.0.0:9999/");
+        open("http://localhost:9999/");
         $("[data-test-id='city'] input").val("Berlin");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").val(strData);
@@ -55,7 +55,7 @@ public class CardDelivery {
 
     @Test
     public void emptyFieldCity() {
-        open("http://0.0.0.0:9999/");
+        open("http://localhost:9999/");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").val(strData);
         $("[data-test-id='name'] input").val("Елена");
@@ -69,7 +69,7 @@ public class CardDelivery {
 
     @Test
     public void wrongDate() {
-        open("http://0.0.0.0:9999/");
+        open("http://localhost:9999/");
         $("[data-test-id='city'] input").val("Омск");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='name'] input").val("Елена");
@@ -83,7 +83,7 @@ public class CardDelivery {
 
     @Test
     public void wrongDate2() {
-        open("http://0.0.0.0:9999/");
+        open("http://localhost:9999/");
         $("[data-test-id='city'] input").val("Омск");
         $("[data-test-id='date'] input").val("12.03.2022");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -98,7 +98,7 @@ public class CardDelivery {
 
     @Test
     public void invalidName() {
-        open("http://0.0.0.0:9999/");
+        open("http://localhost:9999/");
         $("[data-test-id='city'] input").val("Омск");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").val(strData);
@@ -113,7 +113,7 @@ public class CardDelivery {
 
     @Test
     public void noName() {
-        open("http://0.0.0.0:9999/");
+        open("http://localhost:9999/");
         $("[data-test-id='city'] input").val("Омск");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").val(strData);
@@ -127,7 +127,7 @@ public class CardDelivery {
 
     @Test
     public void invalidPhone() {
-        open("http://0.0.0.0:9999/");
+        open("http://localhost:9999/");
         $("[data-test-id='city'] input").val("Омск");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").val(strData);
@@ -142,7 +142,7 @@ public class CardDelivery {
 
     @Test
     public void noCheckBocks() {
-        open("http://0.0.0.0:9999/");
+        open("http://localhost:9999/");
         $("[data-test-id='city'] input").val("Омск");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").val(strData);
